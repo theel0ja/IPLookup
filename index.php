@@ -14,6 +14,7 @@ $twig = new Twig_Environment($loader, array(
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Show default view
     $params = getParameters($_SERVER['REMOTE_ADDR']);
+    $params["mapbox_key"] = getenv("MAPBOX_ACCESS_TOKEN");
 
     echo $twig->render('index.html.twig', $params);
 } else {
@@ -26,6 +27,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Validate $_GET["ip"]
     if(!empty($_GET["ip"]) && filter_var($_GET["ip"], FILTER_VALIDATE_IP) !== false) {
         $params = getParameters($_GET["ip"]);
+        $params["mapbox_key"] = getenv("MAPBOX_ACCESS_TOKEN");
 
         echo $twig->render('index.html.twig', $params);
     }
