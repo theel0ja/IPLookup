@@ -1,6 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
+require_once 'functions/getCountryName.php';
 
 // Load Twig
 $loader = new Twig_Loader_Filesystem('templates');
