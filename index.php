@@ -6,6 +6,7 @@ require_once 'vendor/autoload.php';
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, array(
     'cache' => 'cache',
+    'debug' => true // Environmental variable should set this
 ));
 
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
@@ -26,6 +27,6 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     if(!empty($_GET["ip"]) && filter_var($_GET["ip"], FILTER_VALIDATE_IP) !== false) {
         $params["ip"] = $_GET["ip"];
 
-        echo $twig->render('index.html', $params);
+        echo $twig->render('index.html.twig', $params);
     }
 }

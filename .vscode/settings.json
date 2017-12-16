@@ -1,6 +1,7 @@
 {
     "files.exclude": {
         "vendor": true,
-        "composer.lock": true
+        "composer.lock": true,
+        "cache": true
     }
 }
