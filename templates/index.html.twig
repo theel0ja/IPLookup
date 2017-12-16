@@ -34,10 +34,60 @@
     </div>
     
     <div>
-        <p>Hello world!</p>
+        <table class="table">
+            <!--<thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Username</th>
+                </tr>
+            </thead>-->
+            <tbody>
+                <tr>
+                    <th>Hostname</th>
+                    <td>{{hostname}}</td>
 
-        <pre>Host: {{host}}
-        IP: {{ip}}</pre>
+                    <th>ISP</th>
+                    <td>{{isp}} (AS{{asn}})</td>
+                </tr>
+                <tr>
+                    <th>Continent</th>
+                    <td>North America</td>
+                    
+                    <th>Flag</th>
+                    <td>Flag of {{country}}</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>{{country}}</td>
+                    
+                    <th>Country Code</th>
+                    <td>{{country}} (TODO<!-- USA in US-->)</td>
+                </tr>
+                <tr>
+                    <th>Region</th>
+                    <td>{{region}}</td>
+                    
+                    <th>Local time</th>
+                    <td>TODO</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{city}}</td>
+                    
+                    <th>Latitude</th>
+                    <td>{{lat}}</td>
+                </tr>
+                <tr>
+                    <th>IP Address<!-- (IPv4)--></th>
+                    <td>{{ip}}</td>
+                    
+                    <th>Longitude</th>
+                    <td>{{lon}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 {% endblock %}
 
@@ -47,7 +97,17 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
+            center: [{{lon}}, {{lat}}],
+            zoom: 9,
         });
+
+        var el = document.createElement('div');
+        el.className = 'marker';
+
+        new mapboxgl.Marker()
+        .setLngLat([{{lon}}, {{lat}}])
+        .addTo(map);
+
 
         var layerList = document.getElementById('menu');
         var inputs = layerList.getElementsByTagName('input');
