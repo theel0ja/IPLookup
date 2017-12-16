@@ -12,7 +12,7 @@ $twig = new Twig_Environment($loader, array(
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Show default view
 
-    // ...
+    echo $twig->render('index.html.twig');
 } else {
     // Show default view with some parameters
 
