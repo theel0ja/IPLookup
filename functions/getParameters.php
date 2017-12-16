@@ -1,7 +1,13 @@
 <?php
 
-    function ipinfoClient($ip) {
-        $json = file_get_contents("http://ipinfo.io/{$ip}");
+    /**
+     * ipinfo.io client
+     *
+     * @param string $ipAddress
+     * @return array
+     */
+    function ipinfoClient($ipAddress) {
+        $json = file_get_contents("http://ipinfo.io/{$ipAddress}");
         $details = json_decode($json, true);
         return $details;
     }
@@ -41,8 +47,7 @@
             $params["lon"] = explode(",", $ipinfoData["loc"])[1];
 
             return $params;
-        }
-        else {
+        } else {
             // TODO: throw error
             return false;
         }

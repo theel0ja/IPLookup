@@ -16,8 +16,7 @@
 
         if(!empty($jsonData[$countryCode])) {
             return $jsonData[$countryCode];
-        }
-        else {
+        } else {
             // TODO: Return error "country not found"
             return false;
         }
