@@ -49,21 +49,25 @@
                     <td>{{hostname}}</td>
 
                     <th>ISP</th>
-                    <td>{{isp}} (AS{{asn}})</td>
+                        {{isp}} (<a href="https://bgpview.io/asn/{{asn}}">AS{{asn}}</a>)
+                    </td>
                 </tr>
                 <tr>
                     <th>Continent</th>
                     <td>North America</td>
                     
                     <th>Flag</th>
-                    <td>Flag of {{country}}</td>
+                    <td>
+                        <a href="https://cdn.rawgit.com/hjnilsson/country-flags/master/svg/{{country|lower}}.svg"><img alt="Flag of {{country}}" src="https://cdn.rawgit.com/hjnilsson/country-flags/master/svg/{{country|lower}}.svg" class="rounded img-fluid"
+                        style="max-width: 35px;"/></a>
+                    </td>
                 </tr>
                 <tr>
                     <th>Country</th>
                     <td>{{country}}</td>
                     
                     <th>Country Code</th>
-                    <td>{{country}} (TODO<!-- USA in US-->)</td>
+                    <td>{{country}}<!-- (TODO: set ISO 3166-1 alpha-3 here) --></td>
                 </tr>
                 <tr>
                     <th>Region</th>
