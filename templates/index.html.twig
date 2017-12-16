@@ -98,7 +98,7 @@
 
 {% block javascripts %}
     <script>
-        mapboxgl.accessToken = '{{mapbox_access_token}}'; // TODO: use function
+        mapboxgl.accessToken = '{{mapbox_key}}'; // TODO: use function
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
