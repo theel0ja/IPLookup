@@ -8,7 +8,7 @@ require_once 'functions/getParameters.php';
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, array(
     'cache' => 'cache',
-    'debug' => true // Environmental variable should set this
+    'debug' => true // TODO: Environmental variable should set this
 ));
 
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
