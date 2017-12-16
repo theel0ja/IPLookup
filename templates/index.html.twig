@@ -23,10 +23,10 @@
         <div class="card-body" style="padding: 0px;" id="map-card-body">
             <div id="map"></div>
             <div id="menu" class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary">
+                <label class="btn btn-primary active" id="streets-btn">
                     <input id="streets" type="radio" name="rtoggle" checked=""> Streets
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="satellite-streets-btn">
                     <input id='satellite-streets' type='radio' name='rtoggle'> Satellite
                 </label>
             </div>
@@ -55,6 +55,18 @@
         function switchLayer(layer) {
             var layerId = layer.target.id;
             map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+
+            if(layerId == "satellite-streets") {
+                // Remove active from Streets
+                $( "#menu #streets-btn" ).removeClass("active");
+                $( "#menu #satellite-streets-btn" ).addClass("active");
+            } else if(layerId == "streets") {
+                // Remove active class from Satellite Streets
+                $( "#menu #satellite-streets-btn" ).removeClass("active");
+                $( "#menu #streets-btn" ).addClass("active");
+            } else {
+                throw "Error: Unknown layer";
+            }
         }
 
         for (var i = 0; i < inputs.length; i++) {
