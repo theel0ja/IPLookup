@@ -1,5 +1,4 @@
 <?php
-
     /**
      * ipinfo.io client
      *

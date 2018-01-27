@@ -1,6 +1,4 @@
 <?php
-
-
     // TODO: it can also return boolean
     /**
      * Return country name in English for ISO 3166-1 alpha-2 code.
