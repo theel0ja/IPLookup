@@ -98,7 +98,6 @@
 
 {% block javascripts %}
     <script>
-        mapboxgl.accessToken = '{{mapbox_key}}'; // TODO: use function
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
@@ -106,13 +105,18 @@
             zoom: 9,
         });
 
+        // Add marker to the map.
         var el = document.createElement('div');
         el.className = 'marker';
 
         new mapboxgl.Marker()
         .setLngLat([{{lon}}, {{lat}}])
         .addTo(map);
+     
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl());
 
+        // Layer switcher
 
         var layerList = document.getElementById('menu');
         var inputs = layerList.getElementsByTagName('input');
