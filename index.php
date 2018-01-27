@@ -6,7 +6,8 @@ require_once 'vendor/autoload.php';
 // Functions
 require_once 'functions/getCountryName.php';
 require_once 'functions/getParameters.php';
-require_once 'functions/getMapboxKey.php';
+require_once 'functions/getEnvVariable.php';
+require_once 'functions/getMapboxKey.php'; // Needs getEnvVariable
 
 /**
  * Return project's name
@@ -17,11 +18,32 @@ function getProjectName() {
     return "IPLookup";
 }
 
+/**
+ * Return debug mode
+ *
+ * @return bool
+ */
+function getDebugMode() {
+    $debugMode = false;
+    
+    $debugModeEnvVar = getEnvVariable("DEBUG_MODE");
+
+    if(!empty($debugModeEnvVar)) {
+        if($debugModeEnvVar == "true") {
+            $debugMode = true;
+        } else {
+            $debugMode = false;
+        }
+    }
+
+    return $debugMode;
+}
+
 // Load Twig
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, array(
     'cache' => 'cache',
-    'debug' => true // TODO: Environmental variable should set this
+    'debug' => getDebugMode() // TODO: Environmental variable should set this
 ));
 
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
@@ -29,6 +51,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     $params = getParameters($_SERVER['REMOTE_ADDR']);
     $params["mapbox_key"] = getMapboxKey();
     $params["project_name"] = getProjectName();
+    $params["debug_mode"] = getDebugMode();
 
     echo $twig->render('index.html.twig', $params);
 } else {
@@ -43,6 +66,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
         $params = getParameters($_GET["ip"]);
         $params["mapbox_key"] = getMapboxKey();
         $params["project_name"] = getProjectName();
+        $params["debug_mode"] = getDebugMode();
 
         echo $twig->render('index.html.twig', $params);
     }

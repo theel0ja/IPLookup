@@ -19,6 +19,14 @@
             mapboxgl.accessToken = '{{mapbox_key}}';
         </script>
 
+        {% if debug_mode %}
+            <script>
+                console.log("Debug mode enabled");
+            </script>
+        {% else %}
+            <!-- Debug mode disabled -->
+        {% endif %}
+
         {% block stylesheets %}{% endblock %}
 
         <title>{% block title %}{{project_name}}{% endblock %}</title>
