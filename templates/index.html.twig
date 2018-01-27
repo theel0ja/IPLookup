@@ -45,7 +45,13 @@
             <tbody>
                 <tr>
                     <th>Hostname</th>
-                    <td>{{hostname}}</td>
+                    <td>
+                        {% if hostname %}
+                            <a href="https://www.robtex.com/dns-lookup/{{hostname}}">{{hostname}}</a>
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
 
                     <th>ISP</th>
                     <td>
