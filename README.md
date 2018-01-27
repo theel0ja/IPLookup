@@ -5,4 +5,4 @@
 ## Development server
 `php -S localhost:8000`
 
-Remember to `composer install`
+Remember to `composer install` and `cp .env.dist .env`
