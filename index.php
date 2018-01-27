@@ -3,10 +3,6 @@
 // Libraries
 require_once 'vendor/autoload.php';
 
-// Load vlucas/phpdotenv
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
-
 // Functions
 require_once 'functions/getCountryName.php';
 require_once 'functions/getParameters.php';
@@ -20,8 +16,17 @@ function getMapboxKey() {
 
     $key = getenv("MAPBOX_ACCESS_TOKEN");
 
-    if(empty($key)) {
-        die("Mapbox access token not found");
+    if(empty($key)) {       
+        // Load vlucas/phpdotenv and try again
+        
+        $dotenv = new Dotenv\Dotenv(__DIR__);
+        $dotenv->load();
+        
+        $key = getenv("MAPBOX_ACCESS_TOKEN");
+
+        if(empty($key)) {
+            die("Mapbox access token not found");
+        }
     }
 
     return $key;
