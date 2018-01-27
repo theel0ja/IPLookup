@@ -30,7 +30,11 @@
             
             // Some parameters
             //$params["hostname"] = gethostbyaddr($params["ip"]);
-            $params["hostname"] = $ipinfoData["hostname"];
+            if(!empty($ipinfoData["hostname"])) {
+                $params["hostname"] = $ipinfoData["hostname"];
+            } else {
+                $params["hostname"] = null;
+            }
             $params["asn"] = preg_replace('/\D/', '', explode(" ", $ipinfoData["org"])[0]);
             $params["isp"] = str_replace(
                 explode(" ", $ipinfoData["org"])[0],
