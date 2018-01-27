@@ -141,5 +141,20 @@
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].onclick = switchLayer;
         }
+
+        // Hide map rotation on mapboxgl.NavigationControl
+
+        // disable map rotation using right click + drag
+        map.dragRotate.disable();
+
+        // disable map rotation using touch rotation gesture
+        map.touchZoomRotate.disableRotation();
     </script>
+    <style>
+        /* hide map rotation on mapboxgl.NavigationControl */
+        /* https://github.com/mapbox/mapbox-gl-js/issues/1929#issuecomment-175108317 */
+        .mapboxgl-ctrl-compass {
+            display: none !important;
+        }
+    </style>
 {% endblock %}
