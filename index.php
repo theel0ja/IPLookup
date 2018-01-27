@@ -20,7 +20,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
 } else {
     // Show default view with some parameters
 
-    if(!empty($_GET["host"])) {
+    if(!empty($_GET["host"]) && empty($_GET["ip"])) {
         echo "TODO: Not implemented yet";
     }
 
