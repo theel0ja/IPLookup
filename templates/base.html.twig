@@ -21,7 +21,7 @@
 
         {% block stylesheets %}{% endblock %}
 
-        <title>Hello, world!</title>
+        <title>{% block title %}{{project_name}}{% endblock %}</title>
     </head>
 
     <body>
@@ -38,7 +38,7 @@
                 </li>
             </ul>
             </nav>
-            <h3 class="text-muted">Project name</h3>
+            <h3 class="text-muted">{{project_name}}</h3>
         </header>
 
         <main role="main">

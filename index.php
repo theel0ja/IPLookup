@@ -8,6 +8,15 @@ require_once 'functions/getCountryName.php';
 require_once 'functions/getParameters.php';
 require_once 'functions/getMapboxKey.php';
 
+/**
+ * Return project's name
+ *
+ * @return string
+ */
+function getProjectName() {
+    return "IPLookup";
+}
+
 // Load Twig
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, array(
@@ -19,6 +28,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Show default view
     $params = getParameters($_SERVER['REMOTE_ADDR']);
     $params["mapbox_key"] = getMapboxKey();
+    $params["project_name"] = getProjectName();
 
     echo $twig->render('index.html.twig', $params);
 } else {
@@ -32,6 +42,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     if(!empty($_GET["ip"]) && filter_var($_GET["ip"], FILTER_VALIDATE_IP) !== false) {
         $params = getParameters($_GET["ip"]);
         $params["mapbox_key"] = getMapboxKey();
+        $params["project_name"] = getProjectName();
 
         echo $twig->render('index.html.twig', $params);
     }
