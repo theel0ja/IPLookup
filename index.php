@@ -11,6 +11,11 @@ $dotenv->load();
 require_once 'functions/getCountryName.php';
 require_once 'functions/getParameters.php';
 
+/**
+ * Get Mapbox key
+ *
+ * @return string
+ */
 function getMapboxKey() {
 
     $key = getenv("MAPBOX_ACCESS_TOKEN");
