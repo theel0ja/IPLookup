@@ -29,6 +29,9 @@
             // If IP address is bogon, return error
             if(!empty($ipinfoData["bogon"]) && $ipinfoData["bogon"] == true) {
                 $params["error"] = "bogon";
+                $params["lat"] = 0;
+                $params["lon"] = 0;
+                $params["override_zoom"] = 1;
                 
                 return $params;
             }
@@ -50,9 +53,18 @@
             $params["region"] = $ipinfoData["region"];
             $params["country"] = $ipinfoData["country"];
             
+            
             // Location
             $params["lat"] = explode(",", $ipinfoData["loc"])[0];
             $params["lon"] = explode(",", $ipinfoData["loc"])[1];
+
+            /* if(empty($params["lat"])) {
+                $params["lat"] = 0;
+            }
+            
+            if(empty($params["lng"])) {
+                $params["lon"] = 0;
+            } */
 
             return $params;
         } else {

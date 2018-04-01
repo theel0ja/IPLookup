@@ -65,6 +65,12 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     $params["project_name"] = getProjectName();
     $params["debug_mode"] = getDebugMode();
 
+    // DEBUG
+    /* echo "<pre>";
+    print_r($params);
+    echo "</pre>";
+    exit(); */
+
     echo $twig->render('index.html.twig', $params);
 } else {
     // Show default view with some parameters
