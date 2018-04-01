@@ -1,5 +1,10 @@
 <?php
 
+if($_SERVER['HTTP_HOST'] == "theel0ja-iplookup.herokuapp.com") {
+    header("Location: https://iplookup.theel0ja.info" . $_SERVER['REQUEST_URI']);
+    exit();
+}
+
 // Libraries
 require_once 'vendor/autoload.php';
 
@@ -42,7 +47,7 @@ function getDebugMode() {
 // Load Twig
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, array(
-    'cache' => 'cache',
+//    'cache' => 'cache',
     'debug' => getDebugMode() // TODO: Environmental variable should set this
 ));
 
