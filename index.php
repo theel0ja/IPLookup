@@ -20,6 +20,7 @@ require_once 'functions/getCountryName.php';
 require_once 'functions/getParameters.php';
 require_once 'functions/getEnvVariable.php';
 require_once 'functions/getMapboxKey.php'; // Needs getEnvVariable
+require_once 'functions/getUserIP.php';
 
 /**
  * Return project's name
@@ -60,7 +61,7 @@ $twig = new Twig_Environment($loader, array(
 
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Show default view
-    $params = getParameters($_SERVER['REMOTE_ADDR']);
+    $params = getParameters(getUserIP());
     $params["mapbox_key"] = getMapboxKey();
     $params["project_name"] = getProjectName();
     $params["debug_mode"] = getDebugMode();
