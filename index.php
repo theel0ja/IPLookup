@@ -8,6 +8,13 @@ if($_SERVER['HTTP_HOST'] == "theel0ja-iplookup.herokuapp.com") {
 // Libraries
 require_once 'vendor/autoload.php';
 
+// Raven for error-reporting
+Raven_Autoloader::register();
+
+$client = new Raven_Client('https://87c404ea730a4a0cb596ca0caec20bbb:8113f293c7844edd9ed206131468310c@sentry.io/942255');
+
+$client->install();
+
 // Functions
 require_once 'functions/getCountryName.php';
 require_once 'functions/getParameters.php';
