@@ -26,7 +26,12 @@
 
             //print_r($ipinfoData);
 
-            //TODO: if($ipinfo["bogon"] === 1) -> SHOW ERROR!
+            // If IP address is bogon, return error
+            if(!empty($ipinfoData["bogon"]) && $ipinfoData["bogon"] == true) {
+                $params["error"] = "bogon";
+                
+                return $params;
+            }
             
             // Some parameters
             //$params["hostname"] = gethostbyaddr($params["ip"]);

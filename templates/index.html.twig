@@ -31,6 +31,10 @@
             </div>
         </div>
     </div>
+
+    {# {% if error == 'bogon' %}
+        Bogon!
+    {% endif %} #}
     
     <div>
         <table class="table">
@@ -55,7 +59,15 @@
 
                     <th>ISP</th>
                     <td>
-                        {{isp}} (<a href="https://bgpview.io/asn/{{asn}}">AS{{asn}}</a>)
+                        {% if hostname %}
+                            {{isp}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                        {% if asn and isp %}
+                            <!-- Consider using bgp.he.net -->
+                            (<a href="https://bgpview.io/asn/{{asn}}">AS{{asn}}</a>)
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
@@ -70,31 +82,73 @@
                 </tr>
                 <tr>
                     <th>Country</th>
-                    <td>{{country}}</td>
+                    <td>
+                        {% if country %}
+                            {{country}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
                     
                     <th>Country Code</th>
-                    <td>{{country}}<!-- (TODO: set ISO 3166-1 alpha-3 here) --></td>
+                    <td>
+                        {% if country %}
+                            {{country}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td><!-- (TODO: set ISO 3166-1 alpha-3 here) --></td>
                 </tr>
                 <tr>
                     <th>Region</th>
-                    <td>{{region}}</td>
+                    <td>
+                        {% if region %}
+                            {{region}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
                     
                     <th>Local time</th>
                     <td>TODO <!-- TODO: Implement this --></td>
                 </tr>
                 <tr>
                     <th>City</th>
-                    <td>{{city}}</td>
+                    <td>
+                        {% if city %}
+                            {{city}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}    
+                        </td>
                     
                     <th>Latitude</th>
-                    <td>{{lat}}</td>
+                    <td>
+                        {% if lat %}
+                            {{lat}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
                 </tr>
                 <tr>
                     <th>IP Address<!-- (IPv4)--></th>
-                    <td>{{ip}}</td>
+                    <td>
+                        {% if ip %}
+                            {{ip}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
                     
                     <th>Longitude</th>
-                    <td>{{lon}}</td>
+                    <td>
+                        {% if lat %}
+                            {{lon}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
                 </tr>
             </tbody>
         </table>
