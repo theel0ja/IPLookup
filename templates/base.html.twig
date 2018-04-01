@@ -35,31 +35,29 @@
     <body>
 
         <div class="container">
-        <header class="header clearfix">
-            <nav>
-            <ul class="nav nav-pills float-right">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/theel0ja/IPLookup">GitHub</a>
-                </li>
-            </ul>
-            </nav>
-            <h3 class="text-muted">{{project_name}}</h3>
-        </header>
+            <header class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills float-right">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/theel0ja/IPLookup">GitHub</a>
+                        </li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">{{project_name}}</h3>
+            </header>
 
-        <main role="main">
+            <main role="main">
+                <div>{% block content %}{% endblock %}</div>
+            </main>
 
-            <div>{% block content %}{% endblock %}</div>
-
-        </main>
-
-        <footer class="footer">
-            <p>&copy; Company 2017</p>
-        </footer>
-
-        </div> <!-- /container -->
+            <footer class="footer">
+                <p>&copy; <a href="https://www.eliasojala.me/">Elias Ojala</a> 2017-2018
+                - Data from <a href="https://ipinfo.io/">ipinfo.io</a></p>
+            </footer>
+        </div> <!-- /.container -->
 
         <!-- Optional JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
