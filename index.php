@@ -22,6 +22,7 @@ require_once 'functions/getEnvVariable.php';
 require_once 'functions/getMapboxKey.php'; // Needs getEnvVariable
 require_once 'functions/getUserIP.php';
 require_once 'functions/getTimezoneByPosition.php';
+require_once 'functions/getContinentByCountryCode.php';
 
 /**
  * Return project's name
@@ -70,6 +71,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     if($params["error"] != "bogon") {
         $params["country_name"] = getCountryName($params["country"]);
         $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lng"]);
+        $params["continent"] = getContinentByCountryCode($params["country"]);
     }
 
     // DEBUG
@@ -94,6 +96,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
             if($params["error"] != "bogon") {
                 $params["country_name"] = getCountryName($params["country"]);
                 $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lon"]);
+                $params["continent"] = getContinentByCountryCode($params["country"]);
             }
             
             echo $twig->render('index.html.twig', $params);
@@ -114,6 +117,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
         if($params["error"] != "bogon") {
             $params["country_name"] = getCountryName($params["country"]);
             $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lng"]);
+            $params["continent"] = getContinentByCountryCode($params["country"]);
         }
 
         echo $twig->render('index.html.twig', $params);

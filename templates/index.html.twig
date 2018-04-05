@@ -72,7 +72,13 @@
                 </tr>
                 <tr>
                     <th>Continent</th>
-                    <td>TODO <!-- TODO: Implement this --></td>
+                    <td>
+                        {% if continent %}
+                            {{continent}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}   
+                    </td>
                     
                     {% if country %}
                         <th>Flag</th>
