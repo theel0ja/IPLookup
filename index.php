@@ -65,6 +65,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
     $params["mapbox_key"] = getMapboxKey();
     $params["project_name"] = getProjectName();
     $params["debug_mode"] = getDebugMode();
+    $params["country_name"] = getCountryName($params["country"]);
 
     // DEBUG
     /* echo "<pre>";
@@ -84,6 +85,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
             $params["mapbox_key"] = getMapboxKey();
             $params["project_name"] = getProjectName();
             $params["debug_mode"] = getDebugMode();
+            $params["country_name"] = getCountryName($params["country"]);
             
             echo $twig->render('index.html.twig', $params);
         } else {
@@ -99,6 +101,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
         $params["mapbox_key"] = getMapboxKey();
         $params["project_name"] = getProjectName();
         $params["debug_mode"] = getDebugMode();
+        $params["country_name"] = getCountryName($params["country"]);
 
         echo $twig->render('index.html.twig', $params);
     }
