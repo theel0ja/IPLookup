@@ -1,8 +1,8 @@
 {
-    "require": {
-        "twig/twig": "~2.0",
-        "vlucas/phpdotenv": "^2.4",
-        "sentry/sentry": "^1.8",
-        "cloudflare/cf-ip-rewrite": "^1.0"
-    }
+  "require": {
+    "twig/twig": "~2.0",
+    "vlucas/phpdotenv": "^2.4",
+    "sentry/sentry": "^1.8",
+    "cloudflare/cf-ip-rewrite": "^1.0"
+  }
 }
