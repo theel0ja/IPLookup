@@ -101,11 +101,11 @@
                     <th>Country Code</th>
                     <td>
                         {% if country %}
-                            {{country}}
+                            {{country}}{#  (ISO 3166-1 alpha-3) #}<!-- (TODO: set ISO 3166-1 alpha-3 here) -->
                         {% else %}
                             Unknown<!-- TODO: add styles, etc. to this -->
                         {% endif %}
-                    </td><!-- (TODO: set ISO 3166-1 alpha-3 here) -->
+                    </td>
                 </tr>
                 <tr>
                     <th>Region</th>
@@ -118,7 +118,13 @@
                     </td>
                     
                     <th>Local time</th>
-                    <td>TODO <!-- TODO: Implement this --></td>
+                    <td>
+                        {% if local_time %}
+                            {{local_time}}
+                        {% else %}
+                            Unknown<!-- TODO: add styles, etc. to this -->
+                        {% endif %}
+                    </td>
                 </tr>
                 <tr>
                     <th>City</th>
@@ -128,7 +134,7 @@
                         {% else %}
                             Unknown<!-- TODO: add styles, etc. to this -->
                         {% endif %}    
-                        </td>
+                    </td>
                     
                     <th>Latitude</th>
                     <td>
