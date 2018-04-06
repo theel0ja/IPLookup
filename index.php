@@ -49,6 +49,7 @@ require_once 'functions/getMapboxKey.php'; // Needs getEnvVariable
 require_once 'functions/getUserIP.php';
 require_once 'functions/getTimezoneByPosition.php';
 require_once 'functions/getContinentByCountryCode.php';
+require_once 'functions/getIPAddressFromDNS.php';
 
 /**
  * Return project's name
@@ -107,8 +108,28 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
             echo $twig->render('index.html.twig', $params);
         } else {
             // Query parameter is hostname, do host lookup
+            
+            // TODO: validate $_GET["host"]
+            $ipv4Address = getIPAddressFromDNS($_GET["host"], false);
 
-            die("TODO: Not implemented yet");
+            if(!$ipv4Address) {
+                die('No IPv4 address found for the IP');
+            }
+
+            
+
+            $params = getParameters($ipv4Address);
+            $params["mapbox_key"] = getMapboxKey();
+            $params["project_name"] = getProjectName();
+            $params["debug_mode"] = getDebugMode();
+
+            if($params["error"] != "bogon") {
+                $params["country_name"] = getCountryName($params["country"]);
+                $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lon"]);
+                $params["continent"] = getContinentByCountryCode($params["country"]);
+            }
+            
+            echo $twig->render('index.html.twig', $params);
         }
     }
 
