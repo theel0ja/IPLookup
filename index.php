@@ -11,27 +11,9 @@ require_once 'vendor/autoload.php';
 // Raven for error-reporting
 Raven_Autoloader::register();
 
-$client = new Raven_Client('https://87c404ea730a4a0cb596ca0caec20bbb:8113f293c7844edd9ed206131468310c@sentry.io/942255');
 
-$client->install();
 
-// Functions
-require_once 'functions/getCountryName.php';
-require_once 'functions/getParameters.php';
 require_once 'functions/getEnvVariable.php';
-require_once 'functions/getMapboxKey.php'; // Needs getEnvVariable
-require_once 'functions/getUserIP.php';
-require_once 'functions/getTimezoneByPosition.php';
-require_once 'functions/getContinentByCountryCode.php';
-
-/**
- * Return project's name
- *
- * @return string
- */
-function getProjectName() {
-    return "IPLookup";
-}
 
 /**
  * Return debug mode
@@ -52,6 +34,29 @@ function getDebugMode() {
     }
 
     return $debugMode;
+}
+
+if(!getDebugMode()) {
+    $client = new Raven_Client('https://87c404ea730a4a0cb596ca0caec20bbb:8113f293c7844edd9ed206131468310c@sentry.io/942255');
+
+    $client->install();
+}
+
+// Functions
+require_once 'functions/getCountryName.php';
+require_once 'functions/getParameters.php';
+require_once 'functions/getMapboxKey.php'; // Needs getEnvVariable
+require_once 'functions/getUserIP.php';
+require_once 'functions/getTimezoneByPosition.php';
+require_once 'functions/getContinentByCountryCode.php';
+
+/**
+ * Return project's name
+ *
+ * @return string
+ */
+function getProjectName() {
+    return "IPLookup";
 }
 
 // Load Twig
