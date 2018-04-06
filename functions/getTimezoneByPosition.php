@@ -15,7 +15,10 @@
         $data = json_decode($raw_data, true);
 
         if($data["status"] != "OK") {
-            throw new Error("Timezone lookup status not 'OK'");
+            /* throw new Error("Timezone lookup status not 'OK'"); */
+
+            // Don't freak out, just return false.
+            return false;
         }
 
         return $data["formatted"] . " " . $data["abbreviation"]; // "2018-04-05 17:14:14 CEST"
