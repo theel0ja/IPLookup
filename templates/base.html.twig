@@ -5,6 +5,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- Raven.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raven.js/3.24.0/raven.min.js" integrity="sha256-C0v6xCW0XKv2zJSWSiNl920zYMsEWWLUvysjc48qp88=" crossorigin="anonymous"></script>
+
+        {% if debug_mode %}
+            <script>
+                console.log("Debug mode enabled");
+            </script>
+        {% else %}
+            <!-- Debug mode disabled -->
+            <script>
+                Raven.config('https://87c404ea730a4a0cb596ca0caec20bbb@sentry.io/942255').install();
+            </script>
+        {% endif %}
+
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
 
@@ -18,14 +33,6 @@
         <script>
             mapboxgl.accessToken = '{{mapbox_key}}';
         </script>
-
-        {% if debug_mode %}
-            <script>
-                console.log("Debug mode enabled");
-            </script>
-        {% else %}
-            <!-- Debug mode disabled -->
-        {% endif %}
 
         {% block stylesheets %}{% endblock %}
 
