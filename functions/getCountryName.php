@@ -15,7 +15,7 @@
         if(!empty($jsonData[$countryCode])) {
             return $jsonData[$countryCode];
         } else {
-            // TODO: Return error "country not found"
-            return false;
+            // Return country code if no English name found
+            return $countryCode;
         }
     }
