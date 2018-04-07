@@ -113,7 +113,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
             $ipv4Address = getIPAddressFromDNS($_GET["host"], false);
 
             if(!$ipv4Address) {
-                die('No IPv4 address found for the IP');
+                die('No IPv4 address found for the hostname');
             }
 
             
