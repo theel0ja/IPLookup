@@ -37,7 +37,7 @@ function getEnvVariable(string $variable_name) {
         2018-01-27T18:16:43.802720+00:00 app[web.1]: 10.13.46.152 - - [27/Jan/2018:18:16:43 +0000] "GET /?host=g.co HTTP/1.1" 500 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0
         */
 
-        $dotenv = new Dotenv\Dotenv(__DIR__ . "/..");
+        $dotenv = new Dotenv\Dotenv(__DIR__ . "/../..");
         $dotenv->load();
         
         $variable_contents = getenv($variable_name);
