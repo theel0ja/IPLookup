@@ -10,11 +10,13 @@
 
         {% if debug_mode %}
             <script>
+                var debug_mode = true;
                 console.log("Debug mode enabled");
             </script>
         {% else %}
             <!-- Debug mode disabled -->
             <script>
+                var debug_mode = false;
                 Raven.config('https://87c404ea730a4a0cb596ca0caec20bbb@sentry.io/942255').install();
             </script>
         {% endif %}
@@ -77,8 +79,13 @@
             </main>
 
             <footer class="footer">
-                <p>&copy; <a href="https://www.eliasojala.me/">Elias Ojala</a> 2017-2018
-                - Data from <a href="https://ipinfo.io/">ipinfo.io</a></p>
+                <p>
+                    &copy; <a href="https://www.eliasojala.me/">Elias Ojala</a> 2017-2018
+                    - Data from <a href="https://ipinfo.io/">ipinfo.io</a>
+                    {% if debug_mode %}
+                    - <a id="viewProdVersion">View production version</a>
+                    {% endif %}
+                </p>
             </footer>
         </div> <!-- /.container -->
 
@@ -91,5 +98,17 @@
         
         -->
         {% block javascripts %}{% endblock %}
+
+        
+        {% if debug_mode %}
+            <script>
+                $( document ).ready(function() {
+                    // https://stackoverflow.com/a/16376491/6451184
+                    var productionVersionURL = "https://iplookup.theel0ja.info" + (location.pathname+location.search).substr(1);
+                    
+                    $( "a#viewProdVersion" ).attr("href", productionVersionURL); 
+                });
+            </script>
+        {% endif %}
     </body>
 </html>
