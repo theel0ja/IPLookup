@@ -103,8 +103,7 @@
         {% if debug_mode %}
             <script>
                 $( document ).ready(function() {
-                    // https://stackoverflow.com/a/16376491/6451184
-                    var productionVersionURL = "https://iplookup.theel0ja.info" + (location.pathname+location.search).substr(1);
+                    var productionVersionURL = "https://iplookup.theel0ja.info" + location.pathname + location.search;
                     
                     $( "a#viewProdVersion" ).attr("href", productionVersionURL); 
                 });
