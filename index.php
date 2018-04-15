@@ -70,42 +70,12 @@ $twig = new Twig_Environment($loader, array(
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Show default view
     $params = getParameters(getUserIP());
-    $params["mapbox_key"] = getMapboxKey();
-    $params["project_name"] = getProjectName();
-    $params["debug_mode"] = getDebugMode();
-
-    if($params["error"] != "bogon") {
-        $params["country_name"] = getCountryName($params["country"]);
-        $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lng"]);
-        $params["continent"] = getContinentByCountryCode($params["country"]);
-    }
-
-    // DEBUG
-    /* echo "<pre>";
-    print_r($params);
-    echo "</pre>";
-    exit(); */
-
-    echo $twig->render('index.html.twig', $params);
 } else {
     // Show default view with some parameters
-
     if(!empty($_GET["host"]) && empty($_GET["ip"])) {
         if(filter_var($_GET["host"], FILTER_VALIDATE_IP) !== false) {
             // Query parameter is IP address
-
             $params = getParameters($_GET["host"]);
-            $params["mapbox_key"] = getMapboxKey();
-            $params["project_name"] = getProjectName();
-            $params["debug_mode"] = getDebugMode();
-
-            if($params["error"] != "bogon") {
-                $params["country_name"] = getCountryName($params["country"]);
-                $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lon"]);
-                $params["continent"] = getContinentByCountryCode($params["country"]);
-            }
-            
-            echo $twig->render('index.html.twig', $params);
         } else {
             // Query parameter is hostname, do host lookup
             
@@ -116,36 +86,25 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
                 die('No IPv4 address found for the hostname');
             }
 
-            
-
             $params = getParameters($ipv4Address);
-            $params["mapbox_key"] = getMapboxKey();
-            $params["project_name"] = getProjectName();
-            $params["debug_mode"] = getDebugMode();
-
-            if($params["error"] != "bogon") {
-                $params["country_name"] = getCountryName($params["country"]);
-                $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lon"]);
-                $params["continent"] = getContinentByCountryCode($params["country"]);
-            }
-            
-            echo $twig->render('index.html.twig', $params);
         }
     }
 
     // Validate $_GET["ip"]
     if(!empty($_GET["ip"]) && filter_var($_GET["ip"], FILTER_VALIDATE_IP) !== false) {
         $params = getParameters($_GET["ip"]);
-        $params["mapbox_key"] = getMapboxKey();
-        $params["project_name"] = getProjectName();
-        $params["debug_mode"] = getDebugMode();
-
-        if($params["error"] != "bogon") {
-            $params["country_name"] = getCountryName($params["country"]);
-            $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lng"]);
-            $params["continent"] = getContinentByCountryCode($params["country"]);
-        }
-
-        echo $twig->render('index.html.twig', $params);
     }
 }
+
+
+$params["mapbox_key"] = getMapboxKey();
+$params["project_name"] = getProjectName();
+$params["debug_mode"] = getDebugMode();
+
+if($params["error"] != "bogon") {
+    $params["country_name"] = getCountryName($params["country"]);
+    $params["local_time"] = getTimezoneByPosition($params["lat"], $params["lng"]);
+    $params["continent"] = getContinentByCountryCode($params["country"]);
+}
+
+echo $twig->render('index.html.twig', $params);
