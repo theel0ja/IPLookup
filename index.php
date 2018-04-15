@@ -67,6 +67,7 @@ $twig = new Twig_Environment($loader, array(
     'debug' => getDebugMode() // TODO: Environmental variable should set this
 ));
 
+// If query parameters `host` and `ip` aren't set, show default view (use user's IP address)
 if (empty($_GET["host"]) && empty($_GET["ip"])) {
     // Show default view
     $params = getParameters(getUserIP());
@@ -83,6 +84,7 @@ if (empty($_GET["host"]) && empty($_GET["ip"])) {
             $ipv4Address = getIPAddressFromDNS($_GET["host"], false);
 
             if(!$ipv4Address) {
+                // TODO: Make better error message
                 die('No IPv4 address found for the hostname');
             }
 
