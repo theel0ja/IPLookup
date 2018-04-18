@@ -1,0 +1,11 @@
+0.0.0.0:2015
+
+root /app/src
+
+fastcgi / 127.0.0.1:9000 php
+on startup php-fpm7
+
+# Fixme
+log stdout
+
+errors stdout

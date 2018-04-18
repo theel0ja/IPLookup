@@ -6,7 +6,7 @@ if($_SERVER['HTTP_HOST'] == "theel0ja-iplookup.herokuapp.com") {
 }
 
 // Libraries
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Raven for error-reporting
 Raven_Autoloader::register();
