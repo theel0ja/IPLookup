@@ -7,7 +7,9 @@
 
 ## Development server
 ```bash
-php -S localhost:8000
+cp .env.dist .env
+docker-compose up -d
 ```
 
-Remember to `composer install` and `cp .env.dist .env`
+## Production server
+TODO: Coming soon
