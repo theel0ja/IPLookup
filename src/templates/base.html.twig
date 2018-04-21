@@ -40,6 +40,7 @@
         {% block stylesheets %}{% endblock %}
 
         <!-- Matomo -->
+        {% if not debug_mode %}
         <script type="text/javascript">
         var _paq = _paq || [];
             /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -53,6 +54,7 @@
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
             })();
         </script>
+        {% endif %}
         <!-- End Matomo Code -->
 
         <title>{% block title %}{{project_name}}{% endblock %}</title>
