@@ -11,5 +11,7 @@ cp .env.dist .env
 docker-compose up -d
 ```
 
+Then go to [http://localhost:8080/](http://localhost:8080/).
+
 ## Production server
 TODO: Coming soon
