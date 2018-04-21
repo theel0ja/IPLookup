@@ -2,6 +2,10 @@
 
 root /app/src
 
+internal /templates
+internal /functions
+internal /data
+
 fastcgi / 127.0.0.1:9000 php
 on startup php-fpm7
 
