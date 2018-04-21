@@ -9,6 +9,8 @@ internal /data
 fastcgi / 127.0.0.1:9000 php
 on startup php-fpm7
 
+ext .php
+
 header / X-Xss-Protection "1; mode=block; report=https://eliasojala.report-uri.com/r/d/xss/enforce"
 
 
