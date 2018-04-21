@@ -1,3 +1,12 @@
-<!-- TODO: Make this page. -->
+<?php
+    $version = $_GET["v"];
+    $ip = $_GET["ip"];
+    $host = $_GET["host"];
 
-<h1>Coming soon</h1>
+    if($version === "0.1.0" && $ip == undefined) {
+        header("Location: /?host=" . $host . "&chrome_v=" . $version);
+
+        return true;
+    }
+
+    echo "Coming soon";
