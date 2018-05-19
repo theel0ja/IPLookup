@@ -3,5 +3,8 @@
         "vendor": true,
         // "composer.lock": true,
         "cache": true
+    },
+    "[twig]": {
+        "editor.tabSize": 4
     }
 }
