@@ -15,3 +15,11 @@ Then go to [http://localhost:8080/](http://localhost:8080/).
 
 ## Production server
 TODO: Coming soon
+
+## Add to Flagfox
+
+### Template
+`https://iplookup.theel0ja.info/?ip={IPaddress}&host={domainName}&addon=flagfox`
+
+### Screenshot
+![Screenshot](https://i.imgur.com/FfNxZuv.png)
