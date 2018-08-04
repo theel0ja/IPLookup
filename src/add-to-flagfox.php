@@ -34,8 +34,7 @@
     <pre>https://iplookup.theel0ja.info/?ip={IPaddress}&host={domainName}&addon=flagfox</pre>
 
     <h2>Screenshot</h2>
-    <img alt="Screenshot"
-      src="https://i.imgur.com/FfNxZuv.png">
+    <img src="/assets/img/flagfox-template.png">
 
     <hr>
 

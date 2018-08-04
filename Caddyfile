@@ -18,5 +18,5 @@ log stdout
 errors stdout
 
 
-header / Content-Security-Policy "default-src 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www1.theel0ja.info https://www0.theel0ja.info https://cdnjs.cloudflare.com https://cdn.theel0ja.info; style-src 'self' data: 'unsafe-inline' https://cdnjs.cloudflare.com https://getbootstrap.com https://cdn.theel0ja.info; img-src 'self' data: https://www0.theel0ja.info blob: https://cdn.rawgit.com; font-src data: ; connect-src https://sentry.io https://*.tiles.mapbox.com https://api.mapbox.com; child-src data: blob:; report-uri https://sentry.io/api/942255/csp-report/?sentry_key=87c404ea730a4a0cb596ca0caec20bbb;"
+header / Content-Security-Policy "default-src 'self' ; media-src https://storage.theel0ja.info; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www1.theel0ja.info https://www0.theel0ja.info https://cdnjs.cloudflare.com https://cdn.theel0ja.info; style-src 'self' data: 'unsafe-inline' https://cdnjs.cloudflare.com https://getbootstrap.com https://cdn.theel0ja.info; img-src 'self' data: https://www0.theel0ja.info blob: https://cdn.rawgit.com; font-src data: ; connect-src https://sentry.io https://*.tiles.mapbox.com https://api.mapbox.com; child-src data: blob:; report-uri https://sentry.io/api/942255/csp-report/?sentry_key=87c404ea730a4a0cb596ca0caec20bbb;"
 header / X-Frame-Options "DENY"
