@@ -42,7 +42,7 @@ function switchLayer(layer) {
   } else if(layerId == "streets-alt") {
     // Remove active class from Satellite Streets & Streets
     $( "#menu #streets-btn" ).removeClass("active");
-    $( "#menu #satellite-streets-btn" ).addClass("active");
+    $( "#menu #satellite-streets-btn" ).removeClass("active");
 
     $( "#menu #streets-alt-btn" ).addClass("active");
   } else {
