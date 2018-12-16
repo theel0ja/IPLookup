@@ -19,16 +19,32 @@ var inputs = layerList.getElementsByTagName('input');
 
 function switchLayer(layer) {
   var layerId = layer.target.id;
-  map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+
+  if(layerId == "streets-alt") {
+    map.setStyle("https://tiles-conf.osm.theel0ja.info/config.php?tilejson=https://storage1.theel0ja.info/mapserver/planet.json&style=osm-bright");
+  } else {
+    map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+  }
+
 
   if(layerId == "satellite-streets") {
-      // Remove active from Streets
+      // Remove active from Streets & Streets-Alt
       $( "#menu #streets-btn" ).removeClass("active");
+      $( "#menu #streets-alt-btn" ).removeClass("active");
+
       $( "#menu #satellite-streets-btn" ).addClass("active");
   } else if(layerId == "streets") {
-      // Remove active class from Satellite Streets
+      // Remove active class from Satellite Streets & Streets-Alt
       $( "#menu #satellite-streets-btn" ).removeClass("active");
+      $( "#menu #streets-alt-btn" ).removeClass("active");
+
       $( "#menu #streets-btn" ).addClass("active");
+  } else if(layerId == "streets-alt") {
+    // Remove active class from Satellite Streets & Streets
+    $( "#menu #streets-btn" ).removeClass("active");
+    $( "#menu #satellite-streets-btn" ).addClass("active");
+
+    $( "#menu #streets-alt-btn" ).addClass("active");
   } else {
       throw "Error: Unknown layer";
   }
