@@ -5,7 +5,7 @@ services:
     build: .
     #image: abiosoft/caddy:php
     ports:
-      - 172.19.5.1:30005:2015
+      - 30005:2015
     volumes:
       - ./Caddyfile:/etc/Caddyfile
       - ./src:/app/src
