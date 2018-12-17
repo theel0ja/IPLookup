@@ -38,7 +38,7 @@
 
     <hr>
 
-    <a href="https://iplookup.theel0ja.info">Back to IPLookup</a>
+    <a href="/">Back to IPLookup</a>
 
   </body>
 </html>
