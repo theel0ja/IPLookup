@@ -21,7 +21,21 @@
 {% block content %}
     <div class="card">
         <div class="card-body" style="padding: 0px;" id="map-card-body">
-            <div id="map"></div>
+            <div id="map">
+                <noscript>
+                    <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s+3FB1CE({{lon}},{{lat}})/{{lon}},{{lat}},6.0,0,0/704x304@2x?access_token=pk.eyJ1IjoidGhlZWwwamEiLCJhIjoiY2piOW1xeTg5MGRpZTJxbm92ZDltZ3l4ZiJ9.2QVq7PY5YiaHrz1ib_oWTg"
+                        alt="Map" class="img-fluid">
+                    <style>
+                        #map {
+                            height: auto;
+                        }
+                        /* Hide layer chooser, if no JS */
+                        #menu {
+                            display: none;
+                        }
+                    </style>
+                </noscript>
+            </div>
             <div id="menu" class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active" id="streets-btn">
                     <input id="streets" type="radio" name="rtoggle" checked=""> Streets
