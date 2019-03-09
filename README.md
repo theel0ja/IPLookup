@@ -6,7 +6,7 @@
 
 -->
 
-<a href="https://iplookup.theel0ja.info/?host=hel03-fi.theel0ja.info"><img src="https://storage.theel0ja.info/pub/Screen%20Shot%202018-06-07%20at%2012.12.26.png" width="640" /></a>
+<a href="https://iplookup.theel0ja.info/"><img src="https://storage.theel0ja.info/pub/Screen%20Shot%202018-06-07%20at%2012.12.26.png" width="640" /></a>
 
 ## Development server
 ```bash
