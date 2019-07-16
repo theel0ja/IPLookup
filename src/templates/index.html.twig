@@ -39,7 +39,7 @@
             <div id="menu" class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active" id="streets-btn">
                     <input id="streets" type="radio" name="rtoggle" checked=""> Streets
-                </label><label class="btn btn-primary" id="satellite-streets-btn"><!-- TODO: Try to set them to different lines -->
+                </label><label class="btn btn-primary" id="satellite-streets-btn">{# TODO: Try to set them to different lines #}
                     <input id='satellite-streets' type='radio' name='rtoggle'> Satellite
                 </label>
             </div>
@@ -52,14 +52,14 @@
     
     <div>
         <table class="table">
-            <!--<thead>
+            {#<thead>
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Username</th>
                 </tr>
-            </thead>-->
+            </thead>#}
             <tbody>
                 <tr>
                     <th>Hostname</th>
@@ -67,7 +67,7 @@
                         {% if hostname %}
                             <a href="https://www.robtex.com/dns-lookup/{{hostname}}">{{hostname}}</a>
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
 
@@ -76,7 +76,7 @@
                         {% if isp %}
                             {{isp}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                         {% if asn and isp %}
                             (<a href="https://bgp.he.net/AS{{asn}}" target="_blank">AS{{asn}}</a>)
@@ -89,7 +89,7 @@
                         {% if continent %}
                             {{continent}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}   
                     </td>
                     
@@ -113,16 +113,16 @@
                         {% if country %}
                             {{country_name}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                     
                     <th>Country Code</th>
                     <td>
                         {% if country %}
-                            {{country}}{#  (ISO 3166-1 alpha-3) #}<!-- (TODO: set ISO 3166-1 alpha-3 here) -->
+                            {{country}}{#  (ISO 3166-1 alpha-3) #}{# (TODO: set ISO 3166-1 alpha-3 here) #}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                 </tr>
@@ -132,7 +132,7 @@
                         {% if region %}
                             {{region}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                     
@@ -141,7 +141,7 @@
                         {% if local_time %}
                             {{local_time}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                 </tr>
@@ -151,7 +151,7 @@
                         {% if city %}
                             {{city}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}    
                     </td>
                     
@@ -160,17 +160,17 @@
                         {% if lat %}
                             {{lat}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                 </tr>
                 <tr>
-                    <th>IP Address<!-- (IPv4)--></th>
+                    <th>IP Address{# (IPv4)#}</th>
                     <td>
                         {% if ip %}
                             {{ip}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                     
@@ -179,7 +179,7 @@
                         {% if lat %}
                             {{lon}}
                         {% else %}
-                            Unknown<!-- TODO: add styles, etc. to this -->
+                            Unknown{# TODO: add styles, etc. to this #}
                         {% endif %}
                     </td>
                 </tr>
@@ -226,7 +226,7 @@
     </script>
     <script src="/assets/js/templates/index.js"></script>
 
-    <!-- Add zoom controls to map. -->
+    {# Add zoom controls to map. #}
     <script src="https://cdn.theel0ja.info/libs/mapbox-gl-disable-map-rotation/dist/script.js"></script>
     <link rel="stylesheet" href="https://cdn.theel0ja.info/libs/mapbox-gl-disable-map-rotation/dist/style.css">
     <script>

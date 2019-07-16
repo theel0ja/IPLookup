@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
+        {# Required meta tags #}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="format-detection" content="telephone=no">
         
-        <!-- Raven.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/raven.js/3.24.0/raven.min.js" integrity="sha256-C0v6xCW0XKv2zJSWSiNl920zYMsEWWLUvysjc48qp88=" crossorigin="anonymous"></script>
+        {# Raven.js #}
+        {# <script src="https://cdnjs.theel0ja.info/ajax/libs/raven.js/3.24.0/raven.min.js" integrity="sha256-C0v6xCW0XKv2zJSWSiNl920zYMsEWWLUvysjc48qp88=" crossorigin="anonymous"></script> #}
 
         {% if debug_mode %}
             <script>
@@ -15,23 +15,23 @@
                 console.log("Debug mode enabled");
             </script>
         {% else %}
-            <!-- Debug mode disabled -->
-            <script>
+            {# Debug mode disabled #}
+            {# <script>
                 var debug_mode = false;
                 Raven.config('https://87c404ea730a4a0cb596ca0caec20bbb@sentry.io/942255').install();
-            </script>
+            </script> #}
         {% endif %}
 
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
+        {# Bootstrap CSS #}
+        <link rel="stylesheet" href="https://cdnjs.theel0ja.info/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
 
-        <!-- Custom styles for this template -->
+        {# Custom styles for this template #}
         <link href="/assets/css/upstream-bootstrap/narrow-jumbotron.css" rel="stylesheet">
 
-        <!-- Mapbox-gl.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.43.0/mapbox-gl.js" integrity="sha256-Q64EiAD5SpPHnfdgHNmDFZ2uvMtYDTqhTGZmBE87140=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.43.0/mapbox-gl.css" integrity="sha256-vHJouzrJVgw4jSXJxXbfMWTbhAt/bGGGxVyFDSin518=" crossorigin="anonymous" />
+        {# Mapbox-gl.js #}
+        <script src="https://cdnjs.theel0ja.info/ajax/libs/mapbox-gl/0.43.0/mapbox-gl.js" integrity="sha256-Q64EiAD5SpPHnfdgHNmDFZ2uvMtYDTqhTGZmBE87140=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.theel0ja.info/ajax/libs/mapbox-gl/0.43.0/mapbox-gl.css" integrity="sha256-vHJouzrJVgw4jSXJxXbfMWTbhAt/bGGGxVyFDSin518=" crossorigin="anonymous" />
 
         <script>
             mapboxgl.accessToken = '{{mapbox_key}}';
@@ -39,9 +39,9 @@
 
         {% block stylesheets %}{% endblock %}
 
-        <!-- Matomo -->
+        {# Matomo #}
         {% if not debug_mode %}
-        <script type="text/javascript">
+        {#<script type="text/javascript">
         var _paq = _paq || [];
             /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
             _paq.push(['trackPageView']);
@@ -53,9 +53,9 @@
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://www1.theel0ja.info/a.js'; /* g.src=u+'piwik.js'; */ s.parentNode.insertBefore(g,s);
             })();
-        </script>
+        </script>#}
         {% endif %}
-        <!-- End Matomo Code -->
+        {# End Matomo Code #}
 
         <title>{% block title %}{{project_name}}{% endblock %}</title>
     </head>
@@ -86,25 +86,25 @@
 
             <footer class="footer">
                 <p>
-                    &copy; <a href="https://www.eliasojala.me/">Elias Ojala</a> 2017-2018
-                    - Data from <a href="https://ipinfo.io/">ipinfo.io</a>
+                    {#&copy; <a href="https://www.eliasojala.me/">Elias Ojala</a> 2017-2018
+                    - #}Data from <a href="https://ipinfo.io/">ipinfo.io</a>
                     {% if debug_mode %}
                     - <a id="viewProdVersion" target="_blank">View production version</a>
                     {% endif %}
                 </p>
             </footer>
-        </div> <!-- /.container -->
+        </div> {# /.container #}
 
-        <!-- Optional JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-        <!--
+        {# Optional JavaScript #}
+        <script src="https://cdnjs.theel0ja.info/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        {#
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.theel0ja.info/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.theel0ja.info/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script>
         
-        -->
+        #}
 
-        <!-- BSMenu.js -->
+        {# BSMenu.js #}
         <script src="/assets/js/bsmenu.js"></script>
 
         {% block javascripts %}{% endblock %}
